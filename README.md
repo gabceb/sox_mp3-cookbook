@@ -1,21 +1,22 @@
-sox_mp3 Cookbook
+sox_mp3 cookbook
 ================
 
-Install [Sox](http://sox.sourceforge.net/) with mp3 support
+Installs the [Sox](http://sox.sourceforge.net/) package with mp3 encoding/decoding support
 
 Requirements
 ------------
 
-#### packages
+#### Packages
+
 - `apt` - sox_mp3 needs apt to install packages.
 
-This cookbook has only been tested on Ubuntu 12.04. 
+#### Plarform
+
+This cookbook has only been tested on Ubuntu 12.04. Pull requests for other platforms are appreciated
 
 Attributes
 ----------
 
-e.g.
-#### sox_mp3::default
 <table>
   <tr>
     <th>Key</th>
@@ -24,10 +25,16 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['sox_mp3']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['sox_mp3']['version']</tt></td>
+    <td>String</td>
+    <td>The version of sox to use</td>
+    <td><tt>14.3.2</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['sox_mp3']['source_folder']</tt></td>
+    <td>String</td>
+    <td>The folder where the source for sox will be downloaded to</td>
+    <td><tt>/usr/src/build/14.3.2</tt></td>
   </tr>
 </table>
 
@@ -56,4 +63,6 @@ Contributing
 
 License and Authors
 -------------------
+
 Authors: Gabriel Cebrian
+Licensed under the MIT License
