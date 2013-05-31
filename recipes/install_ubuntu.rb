@@ -10,6 +10,7 @@
 #
 
 full_path = "#{node['sox_mp3']['source_folder']}/sox-#{node['sox_mp3']['version']}"
+installed = "#{full_path}/.installed"
 version = node['sox_mp3']['version']
 
 %w{fakeroot dpkg-dev devscripts}.each do |pkg|
@@ -50,7 +51,8 @@ bash "change_compile_sox" do
 		fakeroot debian/rules binary
 		sudo dpkg -i ../*.deb
 		fakeroot debian/rules clean
+		touch #{installed}
 	EOH
 
-	only_if { ::File.exists?("#{node['sox_mp3']['source_folder']}") }
+	not_if { ::File.exists?(installed) }
 end
